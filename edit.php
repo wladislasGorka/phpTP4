@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Edit</title>
 </head>
 <body>
 <?php
 include('header.php');
+?>
+<main>
+<?php
 include("connexion.php");
 include("delete.php");
 
@@ -23,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     $sql = "UPDATE articles SET titre='$titre', contenu='$contenu', date='$date', auteur='$auteur' WHERE id='$id'";
     
     if (mysqli_query($conn, $sql)) {
-        echo "Mise à jour réussie";
+        echo "<section class='info'>Mise à jour réussie</section>";
     } else {
         echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
     }
@@ -58,23 +61,28 @@ if ($result->num_rows > 0) {
 ?>
 
 <script>
-    function modifArticle(id,titre,date,auteur,contenu){
-        console.log(id,titre,date,auteur,contenu);
-       ("modifId").value=id;
-        document.getElementById("modifTitre").value=titre;
-        document.getElementById("modifDate").value=date;
-        document.getElementById("modifAuteur").value=auteur;
-        document.getElementById("modifContenu").value=contenu;
+    function modifArticle(id, titre, date, auteur, contenu) {
+        console.log(id, titre, date, auteur, contenu);
+        document.getElementById("modifId").value = id;
+        document.getElementById("modifTitre").value = titre;
+        document.getElementById("modifDate").value = date;
+        document.getElementById("modifAuteur").value = auteur;
+        document.getElementById("modifContenu").value = contenu;
     }
 </script>
 
-<form method='post'>
+<form method='post' id='modifForm' class='form'>
+    <h2>Modification d'article</h2>
     <input id='modifId' type="hidden" name='id'>
     <input id='modifTitre' type='text' name='titre'>
-    <input id='modifContenu' type='text' name='contenu'>
-    <input id='modifDate' type='date' name='date'>
     <input id='modifAuteur' type='text' name='auteur'>
+    <input id='modifDate' type='date' name='date'>    
+    <textarea id='modifContenu' name='contenu'></textarea>
     <input type='submit' value='valider'>
 </form>
+</main>
+<?php
+include('footer.php');
+?>
 </body>
 </html>

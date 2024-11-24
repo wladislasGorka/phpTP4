@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
     <title>PHP TP4</title>
 </head>
 <body>
@@ -16,9 +17,9 @@
         if($result->num_rows>0){
             while($row = $result->fetch_assoc()){
                 echo "<article class='article'>";
-                echo "<p>Titre: " . $row["titre"] . "</p>";
-                echo "<p>date : " . $row["date"] . " - Auteur: " . $row["auteur"] . "</p>";
-                echo "<p>contenu : " . $row["contenu"] . "</p>";
+                echo "<h2>" . $row["titre"] . "</h2>";
+                echo "<p>< " . $row["date"] . " >  Auteur: " . $row["auteur"] . "</p>";
+                echo "<p>" . $row["contenu"] . "</p>";
                 echo "</article>";
             }
         }else{

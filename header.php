@@ -1,5 +1,5 @@
 <header>
-    <h2>Journal</h2>
+    <h1>Journal</h1>
     <nav>
         <a href="index.php">Articles</a>
         <a href="add.php">Publier</a>

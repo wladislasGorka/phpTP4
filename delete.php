@@ -4,7 +4,7 @@ function supprimerArticle($conn, $id) {
     $sql = "DELETE FROM articles WHERE id='$id'";
     
     if (mysqli_query($conn, $sql)) {
-        echo "Article supprimé avec succès";
+        echo "<section class='info'>Article supprimé avec succès</section>";
     } else {
         echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
     }
