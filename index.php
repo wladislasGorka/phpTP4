@@ -7,9 +7,25 @@
 </head>
 <body>
     <?php include("header.php"); ?>
-    
+
+<main>
     <!-- connexion à la BDD -->
-    <?php include("connexion.php"); ?>
+    <?php
+        include("connexion.php");   
+        $result = $conn->query("SELECT * FROM articles");
+        if($result->num_rows>0){
+            while($row = $result->fetch_assoc()){
+                echo "<article class='article'>";
+                echo "<p>Titre: " . $row["titre"] . "</p>";
+                echo "<p>date : " . $row["date"] . " - Auteur: " . $row["auteur"] . "</p>";
+                echo "<p>contenu : " . $row["contenu"] . "</p>";
+                echo "</article>";
+            }
+        }else{
+            echo "0 résultats";
+        }
+    ?>
+</main>
 
     <?php include("footer.php"); ?>
 </body>
