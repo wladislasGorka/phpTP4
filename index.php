@@ -6,6 +6,8 @@
     <title>PHP TP4</title>
 </head>
 <body>
-    
+    <?php include("header.php"); ?>
+
+    <?php include("footer.php"); ?>
 </body>
 </html>
