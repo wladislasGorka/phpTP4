@@ -7,6 +7,9 @@
 </head>
 <body>
     <?php include("header.php"); ?>
+    
+    <!-- connexion à la BDD -->
+    <?php include("connexion.php"); ?>
 
     <?php include("footer.php"); ?>
 </body>
