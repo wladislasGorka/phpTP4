@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
     <title>Add</title>
 </head>
@@ -31,10 +32,10 @@
     <main>
         <form method='POST' name='addArticle' id='addForm' class='form'>
             <h2>Ajout d'article</h2>
-            <input  type='text' name='titre' placeholder='titre'>
-            <input  type='text' name='auteur' placeholder='auteur'>
-            <input  type='date' name='date'>
-            <textarea name='contenu' placeholder='contenu'></textarea>
+            <input  type='text' name='titre' placeholder='titre' required>
+            <input  type='text' name='auteur' placeholder='auteur' required>
+            <input  type='date' name='date' required>
+            <textarea name='contenu' placeholder='contenu' required></textarea>
             <input type='submit' value='Valider'>
         </form>
     </main>

@@ -31,13 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         echo "Erreur : " . $sql . "<br>" . mysqli_error($conn);
     }
 }
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["supprimer"])) {
-    $id = $_GET["id"];
-    supprimerArticle($conn, $id);
-}
-// function deleteArticle($id,$conn){
-//     $sql = "DELETE from articles where '$id' = id ";
-//  }
  
 //requete SQL
 $result = $conn->query("SELECT * FROM articles");
@@ -48,7 +41,7 @@ if ($result->num_rows > 0) {
         echo "<p>Date : " . $row["date"] . " - Auteur: " . $row["auteur"] . "</p>";
         echo "<p>Contenu : " . $row["contenu"] . "</p>";
         echo "<button onclick='modifArticle(\"" . $row["id"] . "\", \"" . $row["titre"] . "\", \"" . $row["date"] . "\", \"" . $row["auteur"] . "\", \"" . $row["contenu"] . "\")' name='modifier'>Modifier</button>";
-        echo "<form method='get' style='display:inline;'>";
+        echo "<form method='post' action='delete.php' style='display:inline;'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
         echo "<input type='submit' name='supprimer' value='Supprimer'>";
         echo "</form>";
@@ -74,10 +67,10 @@ if ($result->num_rows > 0) {
 <form method='post' id='modifForm' class='form'>
     <h2>Modification d'article</h2>
     <input id='modifId' type="hidden" name='id'>
-    <input id='modifTitre' type='text' name='titre'>
-    <input id='modifAuteur' type='text' name='auteur'>
-    <input id='modifDate' type='date' name='date'>    
-    <textarea id='modifContenu' name='contenu'></textarea>
+    <input id='modifTitre' type='text' name='titre' required>
+    <input id='modifAuteur' type='text' name='auteur' required>
+    <input id='modifDate' type='date' name='date' required>    
+    <textarea id='modifContenu' name='contenu' required></textarea>
     <input type='submit' value='valider'>
 </form>
 </main>
