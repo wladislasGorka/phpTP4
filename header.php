@@ -1,5 +1,5 @@
 <header>
-    <h1>Journal</h1>
+    <img src='logo.png'>
     <nav>
         <a href="index.php">Articles</a>
         <a href="add.php">Publier</a>

@@ -40,7 +40,7 @@ if ($result->num_rows > 0) {
         echo "<p>Titre: " . $row["titre"] . "</p>";
         echo "<p>Date : " . $row["date"] . " - Auteur: " . $row["auteur"] . "</p>";
         echo "<p>Contenu : " . $row["contenu"] . "</p>";
-        echo "<button onclick='modifArticle(\"" . $row["id"] . "\", \"" . $row["titre"] . "\", \"" . $row["date"] . "\", \"" . $row["auteur"] . "\", \"" . $row["contenu"] . "\")' name='modifier'>Modifier</button>";
+        echo "<a href='#modifForm'><button onclick='modifArticle(\"" . $row["id"] . "\", \"" . $row["titre"] . "\", \"" . $row["date"] . "\", \"" . $row["auteur"] . "\", \"" . $row["contenu"] . "\")' name='modifier'>Modifier</button></a>";
         echo "<form method='post' action='delete.php' style='display:inline;'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
         echo "<input type='submit' name='supprimer' value='Supprimer'>";
